@@ -2,11 +2,8 @@
 
 module.exports = {
     _image: function(app, utterance, callback) {
-        console.log(app);
-        console.log(utterance);
-        var imageExp = new imageExp(app.exp, 'i');
-        var match = utterance.match(imageExp);
-
+        var match = utterance.image;
+        console.log(match);
         var r = imageResponse(app, match);
         callback(r);
     }
