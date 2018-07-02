@@ -4,6 +4,7 @@ var luis = require('./engines/luis.js');
 var regex = require('./engines/regex.js');
 var qnaMaker = require('./engines/qnamaker.js');
 var rasa = require('./engines/rasa.js');
+var photo = require('./engines/image.js')
 
 // This is a default value
 var threshold = 0.8;
@@ -88,6 +89,11 @@ function process(app, utterance, callback) {
         rasa._rasa(app, utterance, callback, function (r) {
             callback(r);
         })
+    if (app.type == 'image')
+        image._image(app, utterance, callback, function (r) {
+            callback(r);
+        })
+    
     else
         return null; // return default: this line breaks
 }
