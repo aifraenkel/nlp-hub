@@ -1,24 +1,50 @@
 {
-  "name": "nlp-hub",
-  "version": "1.1.3",
-  "description": "The hub for natural language processing (nlp) engines.",
-  "main": "/core/core.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marcelofelman/nlp-hub.git"
-  },
-  "keywords": [
-    "nlp"
+  "_args": [
+    [
+      "nlp-hub@^1.1.4",
+      "/home/afraenkel/practia/gitlab/Bot_CheckInAsistido/ruleEngineBot"
+    ]
   ],
-  "author": "Marcelo Felman",
-  "license": "MIT",
+  "_from": "nlp-hub@>=1.1.4 <2.0.0",
+  "_id": "nlp-hub@1.1.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/nlp-hub",
+  "_nodeVersion": "6.9.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/nlp-hub_1.1.4_1527188489562_0.38972274285051767"
+  },
+  "_npmUser": {
+    "email": "felman.marcelo@gmail.com",
+    "name": "mfelman"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {
+    "lodash": "4.17.10"
+  },
+  "_requested": {
+    "name": "nlp-hub",
+    "raw": "nlp-hub@^1.1.4",
+    "rawSpec": "^1.1.4",
+    "scope": null,
+    "spec": ">=1.1.4 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nlp-hub/-/nlp-hub-1.1.4.tgz",
+  "_shasum": "5e99e9c2c44f2f7d8ab8ca0b3c0fdcfa0cfec71a",
+  "_shrinkwrap": null,
+  "_spec": "nlp-hub@^1.1.4",
+  "_where": "/home/afraenkel/practia/gitlab/Bot_CheckInAsistido/ruleEngineBot",
+  "author": {
+    "name": "Marcelo Felman"
+  },
   "bugs": {
     "url": "https://github.com/marcelofelman/nlp-hub/issues"
   },
-  "homepage": "https://github.com/marcelofelman/nlp-hub#readme",
   "dependencies": {
     "async": "^2.5.0",
     "botbuilder": "^3.14.1",
@@ -26,5 +52,40 @@
     "http": "0.0.0",
     "https": "^1.0.0",
     "memory-cache": "^0.2.0"
-  }
+  },
+  "description": "The hub for natural language processing (nlp) engines.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "fileCount": 11,
+    "integrity": "sha512-S3+qhJxyL2+bVdOJg+ZoJ2w8fztaTyfmIJpAuy28fw6p05saQ6YrHZgqy328DPtYLMCjMu+H5hT8SQRVGAcGCw==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbBwwLCRA9TVsSAnZWagAAwWcP/3fiuOHfwbVjDSy3DY5K\ngAPvwyVNqduhCVreCnxX5ebvcDbWIErrka8kBvrStEeICpdWS+V3Hi+m8j7I\nYJLT41OGtNI11HnX3R8JVhAz+vzU4C6rEBmlYJGvfEk29tzMu1+5gnCy+paK\noi5uOGMDZcTvr43yxpYUFEt/CUR6BewkdJsQFQRamZGbojORSdG1+4TDBnPT\nPdW76mpFjwS39rYo1N68zHsP//Kt9v6WJLvIjpmFQFMnTx9n4MMteIl7c883\nfYoaAE3GKXKY++jnkZwp6pBtWBf6a9/6HIxrmgpkfiuOw/aLUDahoB/aqZ32\n2ia71IGkbItnmLcv+7TERjX49IfxnwgUE+o27cbh+j6MGrEikxb+qzXjctvK\noVfGgNyKScNAQ9xgqNvm6Av0H8F9mCJkEpUI+l/oVuy1vkIGV0AQJJOKcfb2\nfX7PkHHZakBOLcNSbi8TH3Lxzlv3deWy25NrOwv3lyfRzN5nfWkqVNNYEHmo\niw9L6h2YquAn2EHgcjW6MhkJw+4bl3yyJk/Czo3pbmx6C/KIcp8EIy3/iCly\nrU0CLXIjykp+bfMBFEKQVluS/AxT7A6hd86FnaUv9PTlBaHBe7fFjo0gABYQ\nX/0jo4PowteAo4ybyqXp0B8APV4mEzE2BuwBoLoNulZkkCb/BMwi8YkET/nK\nAgwJ\r\n=7Ym2\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "5e99e9c2c44f2f7d8ab8ca0b3c0fdcfa0cfec71a",
+    "tarball": "https://registry.npmjs.org/nlp-hub/-/nlp-hub-1.1.4.tgz",
+    "unpackedSize": 13389
+  },
+  "gitHead": "1736d7e333367e2f43ef1c375a7d161e76359816",
+  "homepage": "https://github.com/marcelofelman/nlp-hub#readme",
+  "keywords": [
+    "nlp"
+  ],
+  "license": "MIT",
+  "main": "/core/core.js",
+  "maintainers": [
+    {
+      "name": "mfelman",
+      "email": "felman.marcelo@gmail.com"
+    }
+  ],
+  "name": "nlp-hub",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelofelman/nlp-hub.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.4"
 }

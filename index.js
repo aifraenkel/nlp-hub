@@ -3,6 +3,7 @@ var fs = require('fs');
 var luis = require('./engines/luis.js');
 var regex = require('./engines/regex.js');
 var qnaMaker = require('./engines/qnamaker.js');
+var rasa = require('./engines/rasa.js');
 
 // This is a default value
 var threshold = 0.8;
@@ -81,6 +82,10 @@ function process(app, utterance, callback) {
         })
     if (app.type == 'qnamaker')
         qnaMaker._qnaMaker(app, utterance, callback, function (r) {
+            callback(r);
+        })
+    if (app.type == 'rasa')
+        rasa._rasa(app, utterance, callback, function (r) {
             callback(r);
         })
     else
