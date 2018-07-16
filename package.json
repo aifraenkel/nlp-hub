@@ -1,14 +1,16 @@
 {
   "_args": [
     [
-      "nlp-hub@^1.1.4",
-      "/home/afraenkel/practia/gitlab/Bot_CheckInAsistido/ruleEngineBot"
+      "git+https://github.com/aifraenkel/nlp-hub.git",
+      "/mnt/c/Users/LLamas/Proyectos/practia_bot_checkinasistido"
     ]
   ],
-  "_from": "nlp-hub@>=1.1.4 <2.0.0",
-  "_id": "nlp-hub@1.1.4",
+  "_from": "git+https://github.com/aifraenkel/nlp-hub.git",
+  "_id": "nlp-hub@git+https://github.com/aifraenkel/nlp-hub.git#1be89f9a823bcc0a6470610a678e02ade9991c1c",
+  "_inBundle": false,
   "_inCache": true,
   "_installable": true,
+  "_integrity": "",
   "_location": "/nlp-hub",
   "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
@@ -24,21 +26,21 @@
     "lodash": "4.17.10"
   },
   "_requested": {
-    "name": "nlp-hub",
-    "raw": "nlp-hub@^1.1.4",
-    "rawSpec": "^1.1.4",
-    "scope": null,
-    "spec": ">=1.1.4 <2.0.0",
-    "type": "range"
+    "type": "git",
+    "raw": "git+https://github.com/aifraenkel/nlp-hub.git",
+    "rawSpec": "git+https://github.com/aifraenkel/nlp-hub.git",
+    "saveSpec": "git+https://github.com/aifraenkel/nlp-hub.git",
+    "fetchSpec": "https://github.com/aifraenkel/nlp-hub.git",
+    "gitCommittish": null
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/nlp-hub/-/nlp-hub-1.1.4.tgz",
+  "_resolved": "git+https://github.com/aifraenkel/nlp-hub.git#1be89f9a823bcc0a6470610a678e02ade9991c1c",
   "_shasum": "5e99e9c2c44f2f7d8ab8ca0b3c0fdcfa0cfec71a",
   "_shrinkwrap": null,
-  "_spec": "nlp-hub@^1.1.4",
-  "_where": "/home/afraenkel/practia/gitlab/Bot_CheckInAsistido/ruleEngineBot",
+  "_spec": "git+https://github.com/aifraenkel/nlp-hub.git",
+  "_where": "/mnt/c/Users/LLamas/Proyectos/practia_bot_checkinasistido",
   "author": {
     "name": "Marcelo Felman"
   },
@@ -79,7 +81,6 @@
   ],
   "name": "nlp-hub",
   "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marcelofelman/nlp-hub.git"

@@ -3,7 +3,6 @@
 module.exports = {
     _image: function(app, utterance, callback) {
         var match = utterance.image;
-        console.log(match);
         var r = imageResponse(app, match);
         callback(r);
     }

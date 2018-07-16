@@ -2,12 +2,12 @@ var https = require('https');
 
 module.exports = {
     
-    _luis: function _luis(appId, appKey, appHost, utterance, callback) {
-        
+    _luis: function _luis(appId, appKey, appHost, staging, utterance, callback) {
+        console.log("From Luis:");
         var options = {
             host: appHost,
             port: 443,
-            path: `/luis/v2.0/apps/${appId}?subscription-key=${appKey}&timezoneOffset=0&verbose=true&q=${encodeURIComponent(utterance)}`,
+            path: `/luis/v2.0/apps/${appId}?subscription-key=${appKey}&timezoneOffset=0&verbose=true&staging=${staging}&q=${encodeURIComponent(utterance)}`,
             method: 'GET'
         };
             
@@ -33,7 +33,6 @@ module.exports = {
             
                     myResponse.entities[i] = entity;
                 }, this);
-                
                 callback(myResponse);
             });
         });

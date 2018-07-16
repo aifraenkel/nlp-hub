@@ -16,7 +16,7 @@ module.exports = {
 
     firstMatch: function (utterance, callback) {
         var returnValue = null;
-
+        
         async.eachSeries(apps, function (app, callback) {
             process(app, utterance, function (response) {
                 if (response.intent.score > threshold) {
@@ -31,7 +31,7 @@ module.exports = {
             callback(returnValue);
         });
     },
-
+    
     bestMatch: function (utterance, callback) {
         var results = [];
 
@@ -52,7 +52,24 @@ module.exports = {
             })
         });
     },
+    
+    useLuis: function (utterance,callback){
+        var returnValue = null;
+        //#TODO: Arreglar Esta cosa horrinble
+        app = {"type":"luis", "id":"1319a65b-2ba6-4424-9b1d-f2917deb5707", "key":"e95f2ff9cab64606ae46acbc19550f90", "host":"eastus2.api.cognitive.microsoft.com","staging":"true"}; 
+        process(app, utterance, function (response) {
+            if (response.intent.score > threshold) {
+                returnValue = response;
+                callback(returnValue); // this means break
+            }
+            else {
+                callback(null); // this means continue
+            }
+        }), function done() {
+        callback(returnValue);
+        };
 
+    },
     average: function (utterance) {
         // to-do
     },
@@ -74,7 +91,7 @@ module.exports = {
 function process(app, utterance, callback) {
     // to-do: switch-case according to engine. only for LUIS for now..
     if (app.type == 'luis')
-        luis._luis(app.id, app.key, app.host, utterance.text, callback, function (r) {
+        luis._luis(app.id, app.key, app.host, app.staging, utterance.text, callback, function (r) {
             callback(r);
         });
     if (app.type == 'regex')
