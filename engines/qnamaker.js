@@ -2,6 +2,7 @@ var https = require('https');
 
 module.exports = {
     _qnaMaker: function(app, utterance, callback) {
+
         var data = { question: utterance };
         var options = {
             host: app.host,
@@ -14,12 +15,10 @@ module.exports = {
                 'Content-Length': Buffer.byteLength(JSON.stringify(data))
             }
         };
-
-
         var req = https.request(options, function(res) {
             res.on('data', function(chunk) {
                 var serviceResponse = JSON.parse(chunk.toString());
-                console.log(serviceResponse.answers);
+                // console.log(serviceResponse.answers);
                 let intent = {};
                 // intent.name = 'QnA-Answer';
                 if (serviceResponse.answers != null && serviceResponse.answers.length > 0) {
@@ -36,7 +35,7 @@ module.exports = {
                 myResponse.answer = serviceResponse.answer;
 
                 myResponse.originalResponse = serviceResponse;
-                console.log(myResponse);
+                // console.log(myResponse);
                 callback(myResponse);
             });
         });

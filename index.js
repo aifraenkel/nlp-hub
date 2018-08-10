@@ -14,16 +14,15 @@ var apps = {};
 
 module.exports = {
 
-    firstMatch: function (utterance, callback) {
+    firstMatch: function(utterance, callback) {
         var returnValue = null;
-        
-        async.eachSeries(apps, function (app, callback) {
-            process(app, utterance, function (response) {
+
+        async.eachSeries(apps, function(app, callback) {
+            process(app, utterance, function(response) {
                 if (response.intent.score > threshold) {
                     returnValue = response;
                     callback('break'); // this means break
-                }
-                else {
+                } else {
                     callback(null); // this means continue
                 }
             });
@@ -31,18 +30,18 @@ module.exports = {
             callback(returnValue);
         });
     },
-    
-    bestMatch: function (utterance, callback) {
+
+    bestMatch: function(utterance, callback) {
         var results = [];
 
-        async.each(apps, function (app, callback) {
-            process(app, utterance, function (response) {
+        async.each(apps, function(app, callback) {
+            process(app, utterance, function(response) {
                 results.push(response);
                 callback(null);
             });
         }, function done() {
             var bestResult = null;
-            async.eachSeries(results, function (r, callback) {
+            async.eachSeries(results, function(r, callback) {
                 if (bestResult == null || r.intent.score > bestResult.intent.score) {
                     bestResult = r;
                 }
@@ -52,33 +51,64 @@ module.exports = {
             })
         });
     },
-    
-    useLuis: function (utterance,callback){
+
+    useLuis: function(utterance, callback) {
         var returnValue = null;
         //#TODO: Arreglar Esta cosa horrinble
-        app = {"type":"luis", "id":"1319a65b-2ba6-4424-9b1d-f2917deb5707", "key":"e95f2ff9cab64606ae46acbc19550f90", "host":"eastus2.api.cognitive.microsoft.com","staging":"true"}; 
-        process(app, utterance, function (response) {
-            if (response.intent.score > threshold) {
-                returnValue = response;
-                callback(returnValue); // this means break
-            }
-            else {
-                callback(null); // this means continue
-            }
-        }), function done() {
-        callback(returnValue);
+        app = {
+            "type": "luis",
+            "id": "1319a65b-2ba6-4424-9b1d-f2917deb5707",
+            "key": "e95f2ff9cab64606ae46acbc19550f90",
+            "host": "eastus2.api.cognitive.microsoft.com",
+            "staging": "true"
         };
+        process(app, utterance, function(response) {
+                if (response.intent.score > threshold) {
+                    returnValue = response;
+                    callback(returnValue); // this means break
+                } else {
+                    callback(null); // this means continue
+                }
+            }),
+            function done() {
+                callback(returnValue);
+            };
 
     },
-    average: function (utterance) {
+    useQNA: function(utterance, callback) {
+        var returnValue = null;
+        //#TODO: Arreglar Esta cosa horrinble
+        app = {
+            "id": "TestBot_Qna",
+            "kb": "03e786f8-7c49-4e66-8dc8-5533f449f6cb",
+            "key": "b0e53808-366c-4a73-9587-738c88a4ee53",
+            "host": "testbotqnapractia.azurewebsites.net",
+            "type": "qnamaker"
+        };
+        // console.log(utterance);
+        // console.log(app);
+        process(app, utterance, function(response) {
+                if (response.intent.score > threshold) {
+                    returnValue = response;
+                    callback(returnValue); // this means break
+                } else {
+                    callback(null); // this means continue
+                }
+            }),
+            function done() {
+                callback(returnValue);
+            };
+
+    },
+    average: function(utterance) {
         // to-do
     },
 
-    regressionMatch: function (utterance) {
+    regressionMatch: function(utterance) {
         // to-do
     },
 
-    load: function (filePath) {
+    load: function(filePath) {
         var definition = JSON.parse(fs.readFileSync(`${filePath}`, 'utf8'));
         if (definition.threshold)
             threshold = definition.threshold;
@@ -91,26 +121,26 @@ module.exports = {
 function process(app, utterance, callback) {
     // to-do: switch-case according to engine. only for LUIS for now..
     if (app.type == 'luis')
-        luis._luis(app.id, app.key, app.host, app.staging, utterance.text, callback, function (r) {
+        luis._luis(app.id, app.key, app.host, app.staging, utterance.text, callback, function(r) {
             callback(r);
         });
     if (app.type == 'regex')
-        regex._regex(app, utterance.text, callback, function (r) {
+        regex._regex(app, utterance.text, callback, function(r) {
             callback(r);
         })
     if (app.type == 'qnamaker')
-        qnaMaker._qnaMaker(app, utterance.text, callback, function (r) {
+        qnaMaker._qnaMaker(app, utterance.text, callback, function(r) {
             callback(r);
         })
     if (app.type == 'rasa')
-        rasa._rasa(app, utterance.text, callback, function (r) {
+        rasa._rasa(app, utterance.text, callback, function(r) {
             callback(r);
         })
     if (app.type == 'image')
-        image._image(app, utterance, callback, function (r) {
+        image._image(app, utterance, callback, function(r) {
             callback(r);
         })
-    
+
     else
         return null; // return default: this line breaks
 }

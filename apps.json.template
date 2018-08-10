@@ -1,10 +1,11 @@
 {
-    "threshold":"0.8",
-    "apps":[
-        {"id":"HolaRegex", "intent":"Saludo", "exp":"(^hola$|^holaa$|^holas$|^holi$|^holis$|^hi$|^hello$)", "type":"regex"},
-        {"id":"ComprarVueloRegex", "intent":"ComprarVuelo", "exp":"^Comprar vuelo$", "type":"regex"},
-        {"id":"5d90...", "key":"3f7eb1...", "type":"luis"},
-        {"id":"3285...", "key":"3f7eb1...", "type":"luis"},
-        {"id":"QnA_BOFA_ES", "kb":"055836dd-...", "key":"bdf...", "type":"qnamaker"}
+    "threshold": "0.8",
+    "apps": [
+        { "id": "FotoImage", "intent": "Foto", "type": "image" },
+        { "id": "SaveRegex", "intent": "Save", "exp": "(^save$)", "type": "regex" },
+        { "id": "AfirmativoRegex", "intent": "Afirmativo", "exp": "(^si$|^sip$|^👍$|^vale$|^ok$|^oka$|^dale$|^bueno$)", "type": "regex" },
+        { "id": "NegativoRegex", "intent": "Negativo", "exp": "(^no$|^nono$|^nop$|^negativo$)", "type": "regex" },
+        { "id": "TestBot_Qna", "kb": "03e786f8xxxxxx", "key": "b0e53808xxxxxxxx", "host": "xxxxx.azurewebsites.net", "type": "qnamaker" },
+        { "type": "luis", "id": "1319a65b-2ba6-4424-9b1d-f2917deb5707", "key": "e95f2ff9cab64606ae46acbc19550f90", "host": "eastus2.api.cognitive.microsoft.com", "staging": "true" }
     ]
 }
